@@ -1,4 +1,4 @@
-export const WORDS = [
+const ORIGINAL = [
   "AGENT",
   "WORLD",
   "ABOUT",
@@ -49,6 +49,8 @@ export const WORDS = [
   "HONEY",
   "FLAKE",
   "SOUND",
-  "MESSI",
-  "HONKA",
 ];
+
+const CUSTOM = ["LUFFY", "ANIME", "MESSI", "HONKA"];
+
+export const WORDS = [...ORIGINAL, ...CUSTOM];

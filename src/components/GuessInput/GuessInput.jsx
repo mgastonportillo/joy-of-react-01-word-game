@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const GuessInput = ({ handleSubmitGuess }) => {
+const GuessInput = ({ handleSubmitGuess, gameOver, correctGuess }) => {
   const [inputGuess, setInputGuess] = useState("");
 
   const handleSubmit = (event) => {
@@ -20,12 +20,14 @@ const GuessInput = ({ handleSubmitGuess }) => {
       </label>
       <input
         id="guess-input"
+        className={(gameOver || correctGuess) && "disabled"}
         type="text"
         minLength={5}
         maxLength={5}
         value={inputGuess}
         pattern="[a-zA-ZñÑ]{5}"
         autoComplete="off"
+        disabled={gameOver || correctGuess}
         style={{ textTransform: "uppercase" }}
         onChange={(event) => {
           setInputGuess(event.target.value);

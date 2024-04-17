@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header>
-      <h1>Wordle from "La Salada"</h1>
+      <h1>Wordle from &ldquo;La Salada&rdquo;</h1>
     </header>
   );
 }

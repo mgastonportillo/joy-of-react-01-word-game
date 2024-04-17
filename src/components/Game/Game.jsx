@@ -2,10 +2,10 @@ import { useState } from "react";
 import { sample } from "../../utils/utils";
 import { checkGuess } from "@/utils/game-helpers";
 import { WORDS } from "../../data";
+import { NUM_OF_GUESSES_ALLOWED } from "@/constants";
 import GuessInput from "../GuessInput/GuessInput";
 import GuessResults from "../GuessResults/GuessResults";
-import HappyBanner from "../HappyBanner/HappyBanner";
-import { NUM_OF_GUESSES_ALLOWED } from "@/constants";
+import ResultBanner from "../ResultBanner/ResultBanner";
 
 const answer = sample(WORDS);
 
@@ -44,20 +44,17 @@ const Game = () => {
   return (
     <>
       <GuessResults guessList={guessList} answer={answer} />
-      <GuessInput handleSubmitGuess={handleSubmitGuess} />
-      {correctGuess && (
-        <HappyBanner
+      <GuessInput
+        handleSubmitGuess={handleSubmitGuess}
+        gameOver={gameOver}
+        correctGuess={correctGuess}
+      />
+      {(correctGuess || gameOver) && (
+        <ResultBanner
           guessCount={guessList.length}
-          lost={gameOver}
-          won={correctGuess}
+          correctGuess={correctGuess}
+          answer={answer}
         />
-      )}
-      {gameOver && (
-        <p>
-          Well... you lost. <strong>It's sad</strong>, but tomorrow will be
-          better. Unless you lose tomorrow as well. Then it'll be{" "}
-          <strong>very sad</strong>
-        </p>
       )}
     </>
   );

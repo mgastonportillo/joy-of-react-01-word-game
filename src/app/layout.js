@@ -5,7 +5,7 @@ import "./styles.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Wordle From La Salada",
+  title: "Wordle From 'La Salada'",
   description:
     "Coming straight from 'La Salada', a game to honour the cheap and... yeah, that. Enjoy.",
 };
